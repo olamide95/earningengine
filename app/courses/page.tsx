@@ -1,3 +1,4 @@
+// app/courses/page.tsx
 "use client"
 
 import { useState, useEffect } from "react"
@@ -179,10 +180,12 @@ export default function CoursesPage() {
                   </div>
 
                   <div className="flex gap-2">
-                    <Button variant="outline" size="sm" className="flex-1 bg-transparent">
-                      <Edit className="mr-2 h-4 w-4" />
-                      Edit
-                    </Button>
+                    <Link href={`/courses/${course.id}/lessons`} className="flex-1">
+                      <Button variant="outline" size="sm" className="w-full bg-transparent">
+                        <Edit className="mr-2 h-4 w-4" />
+                        Manage Lessons
+                      </Button>
+                    </Link>
                     <Button
                       variant="outline"
                       size="sm"

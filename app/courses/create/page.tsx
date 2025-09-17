@@ -1,3 +1,4 @@
+// app/courses/create/page.tsx
 "use client"
 
 import type React from "react"
@@ -92,9 +93,9 @@ export default function CreateCoursePage() {
         instructorName: "Course Creator",
       }
 
-      await addDoc(collection(db, "courses"), courseData)
+      const courseRef = await addDoc(collection(db, "courses"), courseData)
 
-      router.push("/courses?created=true")
+      router.push(`/courses/${courseRef.id}/lessons?created=true`)
     } catch (error) {
       console.error("Error creating course:", error)
       alert("Failed to create course. Please try again.")
